@@ -1,0 +1,24 @@
+2023-07-18 19:21:29.749 WAT [24824] LOG:  starting PostgreSQL 15.1, compiled by Visual C++ build 1914, 64-bit
+2023-07-18 19:21:29.758 WAT [24824] LOG:  could not bind IPv6 address "::1": Permission denied
+2023-07-18 19:21:29.758 WAT [24824] LOG:  could not bind IPv4 address "127.0.0.1": Permission denied
+2023-07-18 19:21:29.758 WAT [24824] WARNING:  could not create listen socket for "localhost"
+2023-07-18 19:21:29.758 WAT [24824] FATAL:  could not create any TCP/IP sockets
+2023-07-18 19:21:29.762 WAT [24824] LOG:  database system is shut down
+2023-07-18 19:21:34.270 WAT [22536] LOG:  starting PostgreSQL 15.1, compiled by Visual C++ build 1914, 64-bit
+2023-07-18 19:21:34.278 WAT [22536] LOG:  could not bind IPv6 address "::1": Permission denied
+2023-07-18 19:21:34.278 WAT [22536] LOG:  could not bind IPv4 address "127.0.0.1": Permission denied
+2023-07-18 19:21:34.279 WAT [22536] WARNING:  could not create listen socket for "localhost"
+2023-07-18 19:21:34.279 WAT [22536] FATAL:  could not create any TCP/IP sockets
+2023-07-18 19:21:34.282 WAT [22536] LOG:  database system is shut down
+2023-07-18 19:21:42.785 WAT [25336] LOG:  starting PostgreSQL 15.1, compiled by Visual C++ build 1914, 64-bit
+2023-07-18 19:21:42.793 WAT [25336] LOG:  could not bind IPv6 address "::1": Permission denied
+2023-07-18 19:21:42.793 WAT [25336] LOG:  could not bind IPv4 address "127.0.0.1": Permission denied
+2023-07-18 19:21:42.794 WAT [25336] WARNING:  could not create listen socket for "localhost"
+2023-07-18 19:21:42.794 WAT [25336] FATAL:  could not create any TCP/IP sockets
+2023-07-18 19:21:42.797 WAT [25336] LOG:  database system is shut down
+2023-07-18 19:27:26.469 WAT [7300] LOG:  starting PostgreSQL 15.1, compiled by Visual C++ build 1914, 64-bit
+2023-07-18 19:27:26.476 WAT [7300] LOG:  could not bind IPv6 address "::1": Permission denied
+2023-07-18 19:27:26.476 WAT [7300] LOG:  could not bind IPv4 address "127.0.0.1": Permission denied
+2023-07-18 19:27:26.476 WAT [7300] WARNING:  could not create listen socket for "localhost"
+2023-07-18 19:27:26.476 WAT [7300] FATAL:  could not create any TCP/IP sockets
+2023-07-18 19:27:26.480 WAT [7300] LOG:  database system is shut down

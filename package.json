@@ -4,6 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "pg:init": "initdb -D data",
+    "pg:start": "pg_ctl start -D data",
+    "pg:createdb": "createdb -h 127.0.0.1 crop2cash",
+    "pg:stop": "pg_ctl stop -D data",
     "dev": "nodemon server.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
