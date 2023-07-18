@@ -3,16 +3,23 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const morgan = require('morgan');
+const PoolConnector = require('./services/connector.service');
+const { databaseCreateQuery } = require('./services/queries.service');
+
+PoolConnector.query(databaseCreateQuery, (err, results) => {
+  if(err) console.error(`Error creating database and tables: ${err}`);
+  else console.log(`Database and tables for ${appName} created successfully`)
+});
 
 const app = express();
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header("Accept", "application/json");
-    res.header("Access-Control-Allow-Credentials", 'true');
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Accept", "application/json");
+  res.header("Access-Control-Allow-Credentials", 'true');
+  next();
 });
 
 app.use(cors());
