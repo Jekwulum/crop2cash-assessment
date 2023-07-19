@@ -5,6 +5,7 @@ const express = require('express');
 const morgan = require('morgan');
 const PoolConnector = require('./services/connector.service');
 const { databaseCreateQuery } = require('./services/queries.service');
+const farmerRouter = require('./routes/farmer.route');
 
 PoolConnector.query(databaseCreateQuery, (err, results) => {
   if(err) console.error(`Error creating database and tables: ${err}`);
@@ -29,5 +30,6 @@ app.use(express.json({ limit: "50mb" }));
 
 // remove later
 app.get("/", (req, res) => res.status(200).json({ message: "working" }));
+app.use("/farmers", farmerRouter);
 
 module.exports = app;
