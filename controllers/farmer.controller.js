@@ -26,7 +26,7 @@ const FarmerController = {
 
   getFarmer: async (req, res) => {
     try {
-      PoolConnector.query(getFarmerQuery(res.locals.columns), async(dbError, results) => {
+      PoolConnector.query(getFarmerQuery(res.locals.columns, res.locals.conditionals), async (dbError, results) => {
         if (dbError) {
           console.error('Database Error:', dbError.message);
           return res.status(500).json({ message: dbError.message });
