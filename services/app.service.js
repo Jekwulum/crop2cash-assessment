@@ -1,42 +1,25 @@
 const AppService = {
   formatGetQuery(req, res, next) {
-
     const { columns, first_name, last_name, age, address, phone_number, crops } = req.query;
-    if (columns) {
-      res.locals.columns = columns;
-    } else res.locals.columns = '*';
+    res.locals.columns = columns ? columns : '*';
 
-    // where clauses
-    res.locals.conditionals = " ";
-    if (first_name) res.locals.conditionals += `first_name = '${first_name}' `;
+    const conditions = [];
 
-    if (last_name) {
-      let condition = `last_name = '${last_name}'`;
-      res.locals.conditionals === " " ? res.locals.conditionals += ` ${condition}` : res.locals.conditionals += ` AND ${condition}`;
-    }
-
-    if (age) {
-      let condition = `age = '${age}'`;
-      res.locals.conditionals === " " ? res.locals.conditionals += ` ${condition}` : res.locals.conditionals += ` AND ${condition}`;
-    }
-
-    if (address) {
-      let condition = `address = '${address}'`;
-      res.locals.conditionals === " " ? res.locals.conditionals += ` ${condition}` : res.locals.conditionals += ` AND ${condition}`;
-    }
-
-    if (phone_number) {
-      let condition = `phone_number = '${phone_number}'`;
-      res.locals.conditionals === " " ? res.locals.conditionals += ` ${condition}` : res.locals.conditionals += ` AND ${condition}`;
-    }
+    if (first_name) conditions.push(`first_name = '${first_name}'`);
+    if (last_name) conditions.push(`last_name = '${last_name}'`);
+    if (age) conditions.push(`age = '${age}'`);
+    if (address) conditions.push(`address = '${address}'`);
+    if (phone_number) conditions.push(`phone_number = '${phone_number}'`);
 
     if (crops) {
-      let cropsArray = crops.split(',').map(crop => `"${crop.trim()}"`);
-      let condition = cropsArray.length === 1
+      const cropsArray = crops.split(',').map(crop => `"${crop.trim()}"`);
+      const condition = cropsArray.length === 1
         ? `crops @> '[${cropsArray[0]}]'`
         : `crops @> '[${cropsArray.join(', ')}]'`;
-      res.locals.conditionals === " " ? res.locals.conditionals += ` ${condition}` : res.locals.conditionals += ` AND ${condition}`;
+      conditions.push(condition);
     }
+
+    res.locals.conditionals = conditions.length > 0 ? conditions.join(' AND ') : ' ';
 
     next();
   }
