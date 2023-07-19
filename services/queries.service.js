@@ -16,7 +16,7 @@ const createFarmerQuery = `INSERT INTO
 
 const getFarmerQuery = (columns, conditionals) => {
   if (conditionals === " ") return `SELECT ${columns} FROM farmers`
-  else{console.log(conditionals); return `SELECT ${columns} FROM farmers WHERE ${conditionals}`}
+  else return `SELECT ${columns} FROM farmers WHERE ${conditionals}`
 };
 
 module.exports = { databaseCreateQuery, createFarmerQuery, getFarmerQuery };
