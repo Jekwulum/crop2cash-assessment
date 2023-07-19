@@ -7,7 +7,7 @@ const databaseCreateQuery = `CREATE TABLE IF NOT EXISTS farmers (
                               age INT,
                               address VARCHAR(255),
                               phone_number VARCHAR(20),
-                              crops JSON
+                              crops JSONB
                             );`;
 
 const createFarmerQuery = `INSERT INTO
@@ -15,8 +15,8 @@ const createFarmerQuery = `INSERT INTO
                             values ($1, $2, $3, $4, $5, $6) RETURNING *`;
 
 const getFarmerQuery = (columns, conditionals) => {
-  if (conditionals === " ") { return `SELECT ${columns} FROM farmers` }
-  else {console.log(`SELECT ${columns} FROM farmers WHERE ${conditionals}`); return `SELECT ${columns} FROM farmers WHERE ${conditionals}` }
+  if (conditionals === " ") return `SELECT ${columns} FROM farmers`
+  else return `SELECT ${columns} FROM farmers WHERE ${conditionals}`
 };
 
 module.exports = { databaseCreateQuery, createFarmerQuery, getFarmerQuery };
