@@ -14,6 +14,6 @@ const createFarmerQuery = `INSERT INTO
                             farmers (first_name, last_name, age, address, phone_number, crops)
                             values ($1, $2, $3, $4, $5, $6) RETURNING *`;
 
-const getFarmerQuery = `SELECT * FROM farmers`;
+const getFarmerQuery = (columns) => `SELECT ${columns} FROM farmers`;
 
 module.exports = { databaseCreateQuery, createFarmerQuery, getFarmerQuery };

@@ -1,5 +1,5 @@
 const Pool = require('pg').Pool;
-const DB_CONFIGS = require('./config.services');
+const DB_CONFIGS = require('./config.service');
 const PoolConnector = new Pool(DB_CONFIGS);
 
 PoolConnector.query("SELECT NOW();", error => {
