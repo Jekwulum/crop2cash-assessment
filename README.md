@@ -26,7 +26,13 @@ To run the Crop2Cash application on your local machine, follow these steps:
     npm run pg:start # starts the PostgreSQL server
     npm run pg:createdb # creates a PostgreSQL database on the server
     ```
-4. Run the server
+4. Setup the environment variables in a .env file in the project root driectory
+   ```shell
+   DB_USER=#your_username
+   DB_DATABASE=crop2cash
+   DB_PASSWORD=#your_password
+   ```
+5. Run the server
    - With Nodemon for development
    ```shell
    npm run dev
@@ -38,8 +44,3 @@ To run the Crop2Cash application on your local machine, follow these steps:
    ```
 
    The application will be accessible at `http://localhost:4000`
-
-
-*Usage
-Configuration
-Contact Information
